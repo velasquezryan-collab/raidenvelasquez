@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Raiden Velasquez | WR | Class of 2029 | Orange Lutheran HS</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;0,900;1,800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --gold:#F5B800;--gold2:#FF9500;--cyan:#00D4FF;
+  --bg:#05080F;--bg2:#090D1A;--bg3:#0E1320;
+  --card:#0B0F1C;--card2:#101525;
+  --border:rgba(245,184,0,0.15);--border2:rgba(245,184,0,0.3);
+  --text:#EEF2FF;--muted:#8892A4;--r:12px;--rlg:20px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;overflow-x:hidden}
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:var(--bg2)}
+::-webkit-scrollbar-thumb{background:var(--gold);border-radius:3px}
+a{text-decoration:none;color:inherit}
+
+/* ── CANVAS ── */
+#bgc{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.3}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 48px;background:rgba(5,8,15,.82);backdrop-filter:blur(18px);border-bottom:1px solid var(--border);transition:.3s}
+.nl{display:flex;align-items:center;gap:14px}
+.ni{width:36px;height:36px;background:linear-gradient(135deg,var(--gold),var(--gold2));border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:19px;color:#05080F}
+.nt{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:19px;letter-spacing:.5px}
+.nt span{color:var(--gold)}
+.nlinks{display:flex;gap:28px;list-style:none}
+.nlinks a{font-size:13px;font-weight:500;color:var(--muted);letter-spacing:.4px;transition:.2s}
+.nlinks a:hover{color:var(--gold)}
+.ncta{background:var(--gold);color:#05080F;border:none;border-radius:7px;padding:9px 18px;font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:800;letter-spacing:.8px;cursor:pointer;transition:.2s}
+.ncta:hover{background:#FFD040;transform:translateY(-1px)}
+
+/* ── HERO ── */
+#hero{position:relative;z-index:1;min-height:100vh;display:flex;align-items:center;padding:100px 48px 60px;
+  background:
+    radial-gradient(ellipse 90% 70% at 50% 10%, rgba(245,184,0,.06) 0%, transparent 65%),
+    radial-gradient(ellipse 50% 50% at 85% 60%, rgba(0,212,255,.04) 0%, transparent 60%);
+}
+.hero-inner{max-width:1240px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 420px;gap:60px;align-items:center}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(245,184,0,.1);border:1px solid rgba(245,184,0,.28);border-radius:100px;padding:5px 14px;font-size:11px;font-weight:700;color:var(--gold);letter-spacing:2px;text-transform:uppercase;margin-bottom:22px}
+.badge-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.3;transform:scale(.7)}}
+.hero-name{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(64px,10vw,120px);line-height:.88;letter-spacing:-2px;margin-bottom:10px}
+.hero-name .fn{display:block;color:var(--text)}
+.hero-name .ln{display:block;background:linear-gradient(90deg,var(--gold),var(--gold2),var(--gold));background-size:200%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:sh 4s linear infinite}
+@keyframes sh{0%{background-position:0%}100%{background-position:200%}}
+.hero-pos{font-family:'Barlow Condensed',sans-serif;font-size:26px;font-weight:700;color:var(--muted);letter-spacing:3px;text-transform:uppercase;margin-bottom:28px}
+.hero-pos span{color:var(--cyan)}
+.hero-tags{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:36px}
+.htag{padding:6px 14px;border-radius:6px;font-size:12px;font-weight:700;letter-spacing:.5px;text-transform:uppercase}
+.htag-gold{background:rgba(245,184,0,.14);color:var(--gold);border:1px solid rgba(245,184,0,.25)}
+.htag-cyan{background:rgba(0,212,255,.1);color:var(--cyan);border:1px solid rgba(0,212,255,.2)}
+.htag-gray{background:rgba(255,255,255,.05);color:var(--muted);border:1px solid rgba(255,255,255,.08)}
+.hero-links{display:flex;gap:14px;flex-wrap:wrap}
+.hlink-primary{background:var(--gold);color:#05080F;border:none;border-radius:9px;padding:14px 30px;font-family:'Barlow Condensed',sans-serif;font-size:17px;font-weight:800;letter-spacing:.8px;cursor:pointer;transition:.2s;display:inline-flex;align-items:center;gap:8px}
+.hlink-primary:hover{background:#FFD040;transform:translateY(-2px);box-shadow:0 8px 28px rgba(245,184,0,.35)}
+.hlink-outline{background:transparent;color:var(--text);border:1px solid rgba(255,255,255,.12);border-radius:9px;padding:14px 28px;font-family:'Barlow Condensed',sans-serif;font-size:17px;font-weight:700;letter-spacing:.8px;cursor:pointer;transition:.2s;display:inline-flex;align-items:center;gap:8px}
+.hlink-outline:hover{border-color:var(--gold);color:var(--gold)}
+/* Trinity Callout */
+.trinity-callout{display:flex;align-items:center;gap:14px;background:linear-gradient(135deg,rgba(245,184,0,.13) 0%,rgba(245,184,0,.06) 100%);border:1px solid rgba(245,184,0,.45);border-left:4px solid var(--gold);border-radius:10px;padding:14px 20px;margin-bottom:26px;position:relative;overflow:hidden}
+.trinity-callout::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(245,184,0,.05),transparent);pointer-events:none}
+.trinity-icon{font-size:28px;color:var(--gold);flex-shrink:0;text-shadow:0 0 20px rgba(245,184,0,.5);animation:starPulse 2.5s ease-in-out infinite}
+@keyframes starPulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.2);opacity:.7}}
+.trinity-headline{font-family:'Barlow Condensed',sans-serif;font-size:19px;font-weight:900;color:var(--gold);letter-spacing:.3px;line-height:1.1}
+.trinity-sub{font-size:12px;color:rgba(245,184,0,.65);font-weight:600;letter-spacing:.5px;margin-top:3px;text-transform:uppercase}
+/* Profile card */
+.profile-card{background:var(--card);border:1px solid var(--border2);border-radius:var(--rlg);padding:32px;position:relative;overflow:hidden}
+.profile-card::before{content:'';position:absolute;top:-60px;right:-60px;width:180px;height:180px;background:radial-gradient(circle,rgba(245,184,0,.12),transparent 70%);pointer-events:none}
+.profile-num{font-family:'Barlow Condensed',sans-serif;font-size:110px;font-weight:900;color:rgba(245,184,0,.08);line-height:1;position:absolute;top:10px;right:20px;pointer-events:none;user-select:none}
+.profile-photo-wrap{width:100%;margin-bottom:16px;position:relative;z-index:1;border-radius:14px;overflow:hidden;aspect-ratio:3/4;background:linear-gradient(135deg,var(--gold),var(--gold2))}
+.profile-photo{width:100%;height:100%;object-fit:cover;object-position:top center;display:block;transition:transform .4s ease}
+.profile-photo-wrap:hover .profile-photo{transform:scale(1.03)}
+.profile-photo-wrap::after{content:'';position:absolute;bottom:0;left:0;right:0;height:40%;background:linear-gradient(transparent,rgba(5,8,15,.7));pointer-events:none}
+.profile-avatar-fallback{width:90px;height:90px;border-radius:14px;background:linear-gradient(135deg,var(--gold),var(--gold2));display:none;align-items:center;justify-content:center;font-family:'Barlow Condensed',sans-serif;font-size:42px;font-weight:900;color:#05080F;margin-bottom:16px;position:relative;z-index:1}
+.profile-avatar{width:90px;height:90px;border-radius:14px;background:linear-gradient(135deg,var(--gold),var(--gold2));display:flex;align-items:center;justify-content:center;font-family:'Barlow Condensed',sans-serif;font-size:42px;font-weight:900;color:#05080F;margin-bottom:16px;position:relative;z-index:1}
+.profile-pname{font-family:'Barlow Condensed',sans-serif;font-size:28px;font-weight:900;line-height:1;margin-bottom:6px;position:relative;z-index:1}
+.profile-school{font-size:13px;color:var(--muted);margin-bottom:20px;position:relative;z-index:1}
+.profile-school strong{color:var(--text)}
+.profile-measurables{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;padding-top:20px;border-top:1px solid var(--border);position:relative;z-index:1}
+.pm-box{text-align:center}
+.pm-val{font-family:'Barlow Condensed',sans-serif;font-size:26px;font-weight:800;color:var(--text)}
+.pm-key{font-size:10px;color:var(--muted);font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-top:2px}
+
+/* ── STATS BAR ── */
+#statsbar{position:relative;z-index:1;padding:0 48px;margin-top:-1px}
+.statsbar-label{max-width:1240px;margin:0 auto 10px;display:flex;align-items:center;justify-content:space-between;padding:0 4px}
+.statsbar-season{font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:800;color:var(--gold);letter-spacing:1px;text-transform:uppercase}
+.statsbar-note{font-size:12px;color:var(--muted);font-weight:500;letter-spacing:.3px}
+.statsbar-inner{max-width:1240px;margin:0 auto;background:var(--card2);border:1px solid var(--border2);border-radius:var(--rlg);padding:32px 40px;display:grid;grid-template-columns:repeat(5,1fr);gap:0;position:relative;overflow:hidden}
+.statsbar-inner::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(245,184,0,.04) 0%,transparent 40%,rgba(0,212,255,.03) 100%);pointer-events:none}
+.sb-divider{width:1px;background:var(--border);height:100%;position:absolute}
+.stat-item{text-align:center;padding:0 24px;position:relative}
+.stat-item:not(:last-child)::after{content:'';position:absolute;right:0;top:10%;height:80%;width:1px;background:var(--border)}
+.stat-val{font-family:'Barlow Condensed',sans-serif;font-size:48px;font-weight:900;line-height:1;color:var(--gold)}
+.stat-key{font-size:11px;color:var(--muted);font-weight:600;letter-spacing:1.5px;text-transform:uppercase;margin-top:4px}
+.stat-vs{font-size:10px;color:rgba(0,212,255,.6);margin-top:3px;font-weight:500}
+
+/* ── SECTION BASE ── */
+section{position:relative;z-index:1}
+.inner{max-width:1240px;margin:0 auto}
+.sec-tag{display:inline-block;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);background:rgba(245,184,0,.1);border:1px solid rgba(245,184,0,.2);padding:4px 14px;border-radius:100px;margin-bottom:14px}
+.sec-title{font-family:'Barlow Condensed',sans-serif;font-size:clamp(34px,5vw,58px);font-weight:900;letter-spacing:-.5px;line-height:1.02}
+.sec-title span{color:var(--gold)}
+.sec-sub{font-size:15px;color:var(--muted);margin-top:10px;line-height:1.6}
+
+/* ── HIGHLIGHTS / VIDEO ── */
+#film{padding:90px 48px}
+.film-layout{display:grid;grid-template-columns:1fr 340px;gap:32px;align-items:start;margin-top:48px}
+.video-main{background:var(--card);border:1px solid var(--border2);border-radius:var(--rlg);overflow:hidden}
+.video-main iframe,.video-main video{width:100%;aspect-ratio:16/9;display:block;border:none}
+.video-placeholder-main{aspect-ratio:16/9;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;background:linear-gradient(135deg,var(--bg3),var(--card));cursor:pointer;border:2px dashed rgba(245,184,0,.2);border-radius:var(--rlg);transition:.2s}
+.video-placeholder-main:hover{border-color:rgba(245,184,0,.5);background:rgba(245,184,0,.03)}
+.vpm-icon{font-size:56px;opacity:.25}
+.vpm-label{font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:800;color:var(--muted)}
+.vpm-sub{font-size:13px;color:var(--muted);opacity:.6}
+.add-video-btn{background:rgba(245,184,0,.12);border:1px solid rgba(245,184,0,.3);color:var(--gold);border-radius:8px;padding:12px 24px;font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:800;letter-spacing:.5px;cursor:pointer;transition:.2s;margin-top:4px}
+.add-video-btn:hover{background:rgba(245,184,0,.22)}
+.video-meta{padding:20px 24px;border-top:1px solid var(--border)}
+.video-meta-title{font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:800}
+.video-meta-sub{font-size:13px;color:var(--muted);margin-top:4px}
+/* side clips */
+.clips-panel{display:flex;flex-direction:column;gap:14px}
+.clip-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;cursor:pointer;transition:.25s;display:flex;align-items:stretch}
+.clip-card:hover{border-color:var(--gold);transform:translateX(4px)}
+.clip-thumb{width:110px;flex-shrink:0;background:var(--bg3);display:flex;align-items:center;justify-content:center;font-size:24px;opacity:.3;position:relative}
+.clip-thumb iframe,.clip-thumb video{width:100%;height:100%;border:none;pointer-events:none}
+.clip-info{padding:12px 14px;flex:1}
+.clip-title{font-weight:700;font-size:13px;margin-bottom:4px}
+.clip-meta{font-size:11px;color:var(--muted)}
+.clip-empty{border:1px dashed var(--border);background:transparent;opacity:.5}
+.clip-empty:hover{border-color:rgba(245,184,0,.3);opacity:.8;transform:none}
+.clip-add-icon{font-size:20px;opacity:.4}
+/* video input */
+.video-input-row{display:flex;gap:10px;margin-top:16px}
+.video-input-row input{flex:1;background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:11px 14px;color:var(--text);font-size:13px;font-family:'Inter',sans-serif;outline:none;transition:.2s}
+.video-input-row input:focus{border-color:var(--gold)}
+.video-input-row input::placeholder{color:rgba(136,146,164,.45)}
+.video-input-row button{padding:11px 18px;background:var(--gold);border:none;border-radius:8px;color:#05080F;font-weight:800;font-size:13px;cursor:pointer;font-family:'Barlow Condensed',sans-serif;letter-spacing:.5px;transition:.2s;white-space:nowrap}
+.video-input-row button:hover{background:#FFD040}
+.upload-area{border:1px dashed var(--border);border-radius:8px;padding:16px;text-align:center;cursor:pointer;position:relative;transition:.2s;margin-top:10px}
+.upload-area:hover{border-color:rgba(245,184,0,.4);background:rgba(245,184,0,.02)}
+.upload-area input{position:absolute;inset:0;opacity:0;cursor:pointer}
+.upload-area p{font-size:12px;color:var(--muted)}
+.upload-area p strong{color:var(--gold)}
+
+/* ── SEASON STATS ── */
+#season{padding:90px 48px;background:linear-gradient(180deg,var(--bg) 0%,var(--bg2) 50%,var(--bg) 100%)}
+.season-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:48px}
+/* game log */
+.game-log{background:var(--card);border:1px solid var(--border);border-radius:var(--rlg);overflow:hidden}
+.gl-header{padding:20px 24px;border-bottom:1px solid var(--border);display:grid;grid-template-columns:1fr 60px 60px 60px 60px;gap:8px;align-items:center}
+.gl-h{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);text-align:center}
+.gl-h:first-child{text-align:left}
+.gl-row{padding:14px 24px;border-bottom:1px solid rgba(255,255,255,.04);display:grid;grid-template-columns:1fr 60px 60px 60px 60px;gap:8px;align-items:center;transition:.15s}
+.gl-row:hover{background:rgba(245,184,0,.04)}
+.gl-row:last-child{border-bottom:none}
+.gl-opp{font-size:13px;font-weight:600}
+.gl-opp span{font-size:10px;font-weight:500;color:var(--muted);display:block;margin-top:1px}
+.gl-val{font-size:14px;font-weight:700;text-align:center;color:var(--text)}
+.gl-val.highlight{color:var(--gold)}
+.result-w{color:#70AD47;font-size:11px;font-weight:700;letter-spacing:.5px}
+.result-l{color:var(--muted);font-size:11px;font-weight:500;letter-spacing:.5px}
+/* comparison */
+.compare-box{background:var(--card);border:1px solid var(--border);border-radius:var(--rlg);padding:28px}
+.compare-title{font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:800;margin-bottom:24px}
+.compare-row{margin-bottom:22px}
+.compare-row:last-child{margin-bottom:0}
+.compare-label{font-size:11px;color:var(--muted);font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:10px;display:flex;justify-content:space-between}
+.compare-bars{display:flex;flex-direction:column;gap:8px}
+.cbar-row{display:flex;align-items:center;gap:10px}
+.cbar-who{font-size:11px;font-weight:700;width:48px;flex-shrink:0}
+.cbar-who.raiden{color:var(--gold)}
+.cbar-who.avg{color:var(--muted)}
+.cbar-bg{flex:1;height:8px;background:var(--bg3);border-radius:4px;overflow:hidden}
+.cbar-fill{height:100%;border-radius:4px;transition:width 1.2s cubic-bezier(.4,0,.2,1)}
+.cbar-fill.raiden{background:linear-gradient(90deg,var(--gold),var(--gold2))}
+.cbar-fill.avg{background:rgba(136,146,164,.3)}
+.cbar-num{font-size:12px;font-weight:700;width:36px;text-align:right;flex-shrink:0}
+.cbar-num.raiden{color:var(--gold)}
+.cbar-num.avg{color:var(--muted)}
+.rankings-box{margin-top:24px;padding-top:24px;border-top:1px solid var(--border)}
+.rank-item{display:flex;align-items:center;gap:14px;padding:12px 16px;background:var(--bg3);border-radius:var(--r);margin-bottom:10px;border:1px solid var(--border)}
+.rank-num{font-family:'Barlow Condensed',sans-serif;font-size:36px;font-weight:900;color:var(--gold);line-height:1;min-width:56px;text-align:center}
+.rank-label{font-size:13px;font-weight:600}
+.rank-sub{font-size:11px;color:var(--muted);margin-top:2px}
+
+/* ── SCHOOL ── */
+#school{padding:90px 48px}
+.school-inner{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;margin-top:48px}
+.school-info{}
+.school-name-big{font-family:'Barlow Condensed',sans-serif;font-size:48px;font-weight:900;line-height:1;margin-bottom:8px}
+.school-loc{color:var(--muted);font-size:15px;margin-bottom:28px}
+.school-desc{color:var(--muted);font-size:15px;line-height:1.75;margin-bottom:28px}
+.school-accolades{display:flex;flex-direction:column;gap:12px}
+.accolade{display:flex;align-items:center;gap:12px;padding:14px 18px;background:var(--card);border:1px solid var(--border);border-radius:var(--r);transition:.2s}
+.accolade:hover{border-color:rgba(245,184,0,.35)}
+.acc-icon{font-size:22px;flex-shrink:0}
+.acc-text{font-size:13px;font-weight:600}
+.acc-text span{display:block;font-size:11px;color:var(--muted);font-weight:400;margin-top:2px}
+/* school right — playoff bracket cards */
+.playoff-track{display:flex;flex-direction:column;gap:14px}
+.pt-label{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.pt-game{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:16px 20px;display:flex;align-items:center;justify-content:space-between;transition:.2s}
+.pt-game:hover{border-color:rgba(245,184,0,.3)}
+.pt-game.win{border-left:3px solid #70AD47}
+.pt-game.loss{border-left:3px solid rgba(255,80,80,.5)}
+.pt-vs{font-size:14px;font-weight:700}
+.pt-vs span{display:block;font-size:11px;color:var(--muted);font-weight:400;margin-top:2px}
+.pt-score{font-family:'Barlow Condensed',sans-serif;font-size:24px;font-weight:900;letter-spacing:1px}
+.pt-score.win-s{color:#70AD47}
+.pt-score.loss-s{color:var(--muted)}
+.pt-round{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted)}
+.season-record{display:flex;gap:16px;margin-top:24px}
+.rec-box{flex:1;text-align:center;background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:18px}
+.rec-num{font-family:'Barlow Condensed',sans-serif;font-size:42px;font-weight:900;color:var(--gold)}
+.rec-key{font-size:10px;color:var(--muted);font-weight:600;letter-spacing:1.5px;text-transform:uppercase;margin-top:4px}
+
+/* ── CONTACT / CTA ── */
+#contact{padding:90px 48px;background:linear-gradient(180deg,var(--bg2) 0%,var(--bg) 100%)}
+.contact-inner{max-width:860px;margin:0 auto;text-align:center}
+.contact-inner .sec-title{margin-bottom:16px}
+.contact-inner .sec-sub{max-width:520px;margin:0 auto 48px}
+.contact-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:48px}
+.cc{background:var(--card);border:1px solid var(--border);border-radius:var(--rlg);padding:28px 20px;text-align:center;transition:.25s}
+.cc:hover{border-color:var(--border2);transform:translateY(-4px)}
+.cc-icon{font-size:32px;margin-bottom:14px}
+.cc-title{font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:800;margin-bottom:6px}
+.cc-val{font-size:13px;color:var(--muted)}
+.cc-val a{color:var(--cyan);font-weight:600}
+.cc-val a:hover{color:var(--gold)}
+.cta-main{background:linear-gradient(135deg,rgba(245,184,0,.12),rgba(255,149,0,.08));border:1px solid var(--border2);border-radius:var(--rlg);padding:48px;display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap}
+.cta-text h3{font-family:'Barlow Condensed',sans-serif;font-size:36px;font-weight:900;margin-bottom:8px}
+.cta-text p{font-size:15px;color:var(--muted);max-width:380px;line-height:1.6}
+.cta-btn{background:var(--gold);color:#05080F;border:none;border-radius:10px;padding:18px 40px;font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:900;letter-spacing:.5px;cursor:pointer;transition:.2s;white-space:nowrap;display:flex;align-items:center;gap:10px}
+.cta-btn:hover{background:#FFD040;transform:translateY(-2px);box-shadow:0 10px 36px rgba(245,184,0,.4)}
+
+/* ── FOOTER ── */
+footer{background:var(--bg);border-top:1px solid var(--border);padding:36px 48px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.fl{font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:900}
+.fl span{color:var(--gold)}
+.fc{font-size:12px;color:var(--muted)}
+.fsource{display:flex;gap:16px}
+.fsource a{font-size:12px;color:var(--muted);transition:.2s}
+.fsource a:hover{color:var(--gold)}
+
+/* ── VIDEO ADD PANEL ── */
+.add-panel{background:var(--card2);border:1px solid var(--border);border-radius:var(--r);padding:20px;margin-top:12px;display:none}
+.add-panel.open{display:block}
+.add-panel h4{font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:800;margin-bottom:12px;color:var(--gold)}
+
+/* ── TOAST ── */
+.toast{position:fixed;bottom:28px;right:28px;z-index:9999;background:var(--card);border:1px solid var(--gold);border-radius:10px;padding:12px 18px;display:flex;align-items:center;gap:10px;font-size:13px;font-weight:600;transform:translateY(80px);opacity:0;transition:all .4s cubic-bezier(.34,1.56,.64,1);pointer-events:none}
+.toast.show{transform:translateY(0);opacity:1}
+
+/* ── REVEAL ── */
+.rev{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}
+.rev.vis{opacity:1;transform:translateY(0)}
+
+@media(max-width:900px){
+  nav{padding:0 20px}.nlinks{display:none}
+  .hero-inner{grid-template-columns:1fr;gap:36px}#hero{padding:100px 20px 60px}
+  #statsbar{padding:0 20px}.statsbar-inner{grid-template-columns:repeat(3,1fr);gap:16px}
+  .stat-item:nth-child(4),.stat-item:nth-child(5){display:none}
+  #film,#season,#school,#contact{padding:70px 20px}
+  .film-layout{grid-template-columns:1fr}.clips-panel{display:none}
+  .season-grid{grid-template-columns:1fr}
+  .school-inner{grid-template-columns:1fr}
+  .contact-cards{grid-template-columns:1fr}
+  .cta-main{flex-direction:column;text-align:center}
+  footer{flex-direction:column;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<canvas id="bgc"></canvas>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nl">
+    <div class="ni">RV</div>
+    <div class="nt">RAIDEN <span>VELASQUEZ</span></div>
+  </div>
+  <ul class="nlinks">
+    <li><a href="#film">Film</a></li>
+    <li><a href="#season">Stats</a></li>
+    <li><a href="#school">School</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="ncta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">CONTACT RAIDEN</button>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badge"><span class="badge-dot"></span>Class of 2029 · Wide Receiver</div>
+      <div class="hero-name">
+        <span class="fn">RAIDEN</span>
+        <span class="ln">VELASQUEZ</span>
+      </div>
+      <div class="hero-pos">WR · <span>#24</span> · Orange Lutheran HS</div>
+      <div class="trinity-callout">
+        <div class="trinity-icon">★</div>
+        <div class="trinity-text">
+          <div class="trinity-headline">Only Starting Varsity Freshman in the Trinity League</div>
+          <div class="trinity-sub">Orange County · Southern California · 2024–25 Season</div>
+        </div>
+      </div>
+      <div class="hero-tags">
+        <span class="htag htag-gold">⚡ Only Varsity Freshman Starter</span>
+        <span class="htag htag-cyan">CIF SS Div 1 Playoffs</span>
+        <span class="htag htag-gray">Orange, CA</span>
+        <span class="htag htag-gray">5'10" · 180 lbs</span>
+      </div>
+      <div class="hero-links">
+        <a href="https://www.hudl.com/profile/26508217/raiden-velasquez" target="_blank" class="hlink-primary">🎬 View on Hudl</a>
+        <a href="https://www.maxpreps.com/ca/orange/orange-lutheran-lancers/athletes/raiden-velasquez/?careerid=oktefdg1666g0" target="_blank" class="hlink-outline">📊 MaxPreps Profile</a>
+      </div>
+    </div>
+    <div class="profile-card rev">
+      <div class="profile-num">#24</div>
+      <div class="profile-photo-wrap">
+        <img src="https://oluathletics.org/images/2025/8/8/RaidenVelasquez.jpg" alt="Raiden Velasquez" class="profile-photo" onerror="this.style.display='none';document.querySelector('.profile-avatar-fallback').style.display='flex'">
+        <div class="profile-avatar-fallback">RV</div>
+      </div>
+      <div class="profile-pname">Raiden Velasquez</div>
+      <div class="profile-school"><strong>Orange Lutheran High School</strong><br>Varsity Football · WR · #24</div>
+      <div class="profile-measurables">
+        <div class="pm-box"><div class="pm-val">5'10"</div><div class="pm-key">Height</div></div>
+        <div class="pm-box"><div class="pm-val">180</div><div class="pm-key">Weight</div></div>
+        <div class="pm-box"><div class="pm-val">2029</div><div class="pm-key">Class</div></div>
+        <div class="pm-box"><div class="pm-val">—</div><div class="pm-key">40 Yard</div></div>
+        <div class="pm-box"><div class="pm-val">4.3</div><div class="pm-key">GPA</div></div>
+        <div class="pm-box"><div class="pm-val">CA</div><div class="pm-key">State</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div id="statsbar">
+  <div class="statsbar-label">
+    <span class="statsbar-season">⭐ Freshman Season Stats — 2024–25</span>
+    <span class="statsbar-note">Orange Lutheran Varsity · Trinity League · Age 14</span>
+  </div>
+  <div class="statsbar-inner rev">
+    <div class="stat-item">
+      <div class="stat-val" id="sv1">0</div>
+      <div class="stat-key">Receiving Yards</div>
+      <div class="stat-vs">Natl Avg: 70</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-val" id="sv2">0</div>
+      <div class="stat-key">Receptions</div>
+      <div class="stat-vs">Natl Avg: 5</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-val" id="sv3">0</div>
+      <div class="stat-key">Receiving TDs</div>
+      <div class="stat-vs">Natl Avg: 1</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-val">15.1</div>
+      <div class="stat-key">Yards Per Catch</div>
+      <div class="stat-vs">Natl Avg: 13.2</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-val">25.7</div>
+      <div class="stat-key">Yards Per Game</div>
+      <div class="stat-vs">Natl Avg: 8.7</div>
+    </div>
+  </div>
+</div>
+
+<!-- FILM -->
+<section id="film">
+  <div class="inner">
+    <div class="rev">
+      <div class="sec-tag">Film Room</div>
+      <h2 class="sec-title">HIGHLIGHT <span>FILM</span></h2>
+      <p class="sec-sub">2024–25 season footage · Orange Lutheran Lancers Varsity · Trinity League</p>
+    </div>
+
+    <div class="film-layout rev" style="transition-delay:.1s">
+      <div>
+        <div class="video-main" id="mainVideoWrap">
+          <video controls autoplay muted loop playsinline style="width:100%;aspect-ratio:16/9;display:block;background:#000;border-radius:var(--rlg) var(--rlg) 0 0">
+            <source src="highlight_reel.mp4" type="video/mp4">
+            Your browser does not support HTML5 video.
+          </video>
+          <div class="video-meta" style="display:block">
+            <div class="video-meta-title">Raiden Velasquez — Highlights</div>
+            <div class="video-meta-sub">2024–25 Season · Orange Lutheran HS · WR #24</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="clips-panel">
+        <div class="sec-tag" style="margin-bottom:12px">Additional Clips</div>
+        <!-- Clip 1 -->
+        <div class="clip-card" id="clip1" style="cursor:default">
+          <div class="clip-thumb" id="ct1" style="background:#000;overflow:hidden;border-radius:8px">
+            <video src="highlight_reel.mp4" muted playsinline style="width:100%;height:100%;object-fit:cover" onmouseover="this.play()" onmouseout="this.pause();this.currentTime=0"></video>
+          </div>
+          <div class="clip-info">
+            <div class="clip-title" id="ctitle1">Highlight Reel</div>
+            <div class="clip-meta" id="cmeta1">2024–25 Season · Orange Lutheran</div>
+          </div>
+        </div>
+        <div class="add-panel" id="panel1">
+          <h4>📎 Add Clip 1</h4>
+          <div class="video-input-row"><input type="text" id="url1" placeholder="YouTube or Hudl URL…"><button onclick="embedClip(1)">ADD</button></div>
+          <div class="upload-area"><input type="file" accept="video/*" onchange="uploadClip(1,this)"><p><strong>Upload MP4</strong></p></div>
+        </div>
+        <!-- Clip 2 -->
+        <div class="clip-card" id="clip2" onclick="toggleAddPanel('panel2')">
+          <div class="clip-thumb" id="ct2"><span>+</span></div>
+          <div class="clip-info">
+            <div class="clip-title" id="ctitle2">Add Clip 2</div>
+            <div class="clip-meta" id="cmeta2">Game film · Drill footage · Camp</div>
+          </div>
+        </div>
+        <div class="add-panel" id="panel2">
+          <h4>📎 Add Clip 2</h4>
+          <div class="video-input-row"><input type="text" id="url2" placeholder="YouTube or Hudl URL…"><button onclick="embedClip(2)">ADD</button></div>
+          <div class="upload-area"><input type="file" accept="video/*" onchange="uploadClip(2,this)"><p><strong>Upload MP4</strong></p></div>
+        </div>
+        <!-- Clip 3 -->
+        <div class="clip-card" id="clip3" onclick="toggleAddPanel('panel3')">
+          <div class="clip-thumb" id="ct3"><span>+</span></div>
+          <div class="clip-info">
+            <div class="clip-title" id="ctitle3">Add Clip 3</div>
+            <div class="clip-meta" id="cmeta3">Game film · Drill footage · Camp</div>
+          </div>
+        </div>
+        <div class="add-panel" id="panel3">
+          <h4>📎 Add Clip 3</h4>
+          <div class="video-input-row"><input type="text" id="url3" placeholder="YouTube or Hudl URL…"><button onclick="embedClip(3)">ADD</button></div>
+          <div class="upload-area"><input type="file" accept="video/*" onchange="uploadClip(3,this)"><p><strong>Upload MP4</strong></p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SEASON STATS -->
+<section id="season">
+  <div class="inner">
+    <div class="rev">
+      <div class="sec-tag">2025–26 Season</div>
+      <h2 class="sec-title">SEASON <span>BREAKDOWN</span></h2>
+      <p class="sec-sub">Freshman year on Varsity — competing against the best in Southern California.</p>
+    </div>
+    <div class="season-grid rev" style="transition-delay:.1s">
+      <!-- Game log -->
+      <div class="game-log">
+        <div class="gl-header">
+          <div class="gl-h">Opponent</div>
+          <div class="gl-h">REC</div>
+          <div class="gl-h">YDS</div>
+          <div class="gl-h">YPC</div>
+          <div class="gl-h">TD</div>
+        </div>
+        <div class="gl-row">
+          <div class="gl-opp">Northwestern (FL) <span><span class="result-l">L 15–17</span> · Aug 23</span></div>
+          <div class="gl-val">1</div><div class="gl-val">12</div><div class="gl-val">12.0</div><div class="gl-val">—</div>
+        </div>
+        <div class="gl-row">
+          <div class="gl-opp">Rancho Cucamonga <span><span class="result-l">L 24–27</span> · Aug 29</span></div>
+          <div class="gl-val">2</div><div class="gl-val">36</div><div class="gl-val">18.0</div><div class="gl-val">—</div>
+        </div>
+        <div class="gl-row">
+          <div class="gl-opp">Basha (AZ) <span><span class="result-l">L 24–30</span> · Sep 5</span></div>
+          <div class="gl-val">3</div><div class="gl-val">19</div><div class="gl-val">6.3</div><div class="gl-val">—</div>
+        </div>
+        <div class="gl-row">
+          <div class="gl-opp">Serra <span><span class="result-w">W 35–14</span> · Sep 12</span></div>
+          <div class="gl-val highlight">1</div><div class="gl-val highlight">66</div><div class="gl-val highlight">66.0</div><div class="gl-val">—</div>
+        </div>
+        <div class="gl-row">
+          <div class="gl-opp">JSerra Catholic <span><span class="result-w">W 63–23</span> · Oct 17</span></div>
+          <div class="gl-val highlight">2</div><div class="gl-val highlight">65</div><div class="gl-val highlight">32.5</div><div class="gl-val">—</div>
+        </div>
+        <div class="gl-row">
+          <div class="gl-opp">Santa Margarita <span><span class="result-l">L 7–28</span> · Oct 24</span></div>
+          <div class="gl-val">2</div><div class="gl-val">25</div><div class="gl-val">12.5</div><div class="gl-val">—</div>
+        </div>
+        <div class="gl-row">
+          <div class="gl-opp">Servite <span><span class="result-l">L 28–30</span> · Oct 31</span></div>
+          <div class="gl-val">4</div><div class="gl-val">27</div><div class="gl-val">6.8</div><div class="gl-val">—</div>
+        </div>
+        <div class="gl-row" style="background:rgba(0,212,255,.03)">
+          <div class="gl-opp">St. John Bosco <span><span class="result-w">W 20–19 🏆</span> · Nov 14 · CIF Playoffs</span></div>
+          <div class="gl-val">—</div><div class="gl-val">—</div><div class="gl-val">—</div><div class="gl-val">—</div>
+        </div>
+        <div class="gl-row">
+          <div class="gl-opp">Santa Margarita <span><span class="result-l">L 6–31</span> · Nov 21 · CIF Div 1 Final</span></div>
+          <div class="gl-val">2</div><div class="gl-val">7</div><div class="gl-val">3.5</div><div class="gl-val">—</div>
+        </div>
+        <div class="gl-row" style="background:rgba(245,184,0,.05);border-top:1px solid rgba(245,184,0,.2)">
+          <div class="gl-opp" style="font-weight:800;color:var(--gold)">SEASON TOTALS</div>
+          <div class="gl-val highlight" style="font-size:16px">17</div>
+          <div class="gl-val highlight" style="font-size:16px">257</div>
+          <div class="gl-val highlight" style="font-size:16px">15.1</div>
+          <div class="gl-val highlight" style="font-size:16px">4</div>
+        </div>
+      </div>
+
+      <!-- Comparison + rankings -->
+      <div>
+        <div class="compare-box">
+          <div class="compare-title">vs. National Average</div>
+          <div class="compare-row">
+            <div class="compare-label"><span>Receiving Yards</span></div>
+            <div class="compare-bars">
+              <div class="cbar-row">
+                <div class="cbar-who raiden">Raiden</div>
+                <div class="cbar-bg"><div class="cbar-fill raiden" style="width:100%"></div></div>
+                <div class="cbar-num raiden">257</div>
+              </div>
+              <div class="cbar-row">
+                <div class="cbar-who avg">Avg</div>
+                <div class="cbar-bg"><div class="cbar-fill avg" style="width:27%"></div></div>
+                <div class="cbar-num avg">70</div>
+              </div>
+            </div>
+          </div>
+          <div class="compare-row">
+            <div class="compare-label"><span>Receptions</span></div>
+            <div class="compare-bars">
+              <div class="cbar-row">
+                <div class="cbar-who raiden">Raiden</div>
+                <div class="cbar-bg"><div class="cbar-fill raiden" style="width:100%"></div></div>
+                <div class="cbar-num raiden">17</div>
+              </div>
+              <div class="cbar-row">
+                <div class="cbar-who avg">Avg</div>
+                <div class="cbar-bg"><div class="cbar-fill avg" style="width:29%"></div></div>
+                <div class="cbar-num avg">5</div>
+              </div>
+            </div>
+          </div>
+          <div class="compare-row">
+            <div class="compare-label"><span>Yards Per Game</span></div>
+            <div class="compare-bars">
+              <div class="cbar-row">
+                <div class="cbar-who raiden">Raiden</div>
+                <div class="cbar-bg"><div class="cbar-fill raiden" style="width:100%"></div></div>
+                <div class="cbar-num raiden">25.7</div>
+              </div>
+              <div class="cbar-row">
+                <div class="cbar-who avg">Avg</div>
+                <div class="cbar-bg"><div class="cbar-fill avg" style="width:34%"></div></div>
+                <div class="cbar-num avg">8.7</div>
+              </div>
+            </div>
+          </div>
+          <div class="rankings-box">
+            <div class="sec-tag" style="margin-bottom:16px">SoCal Rankings — 2025–26</div>
+            <div class="rank-item">
+              <div class="rank-num">#31</div>
+              <div>
+                <div class="rank-label">Division 1 — Total Return Yards</div>
+                <div class="rank-sub">CIF Southern Section · Special Teams</div>
+              </div>
+            </div>
+            <div class="rank-item">
+              <div class="rank-num">#9</div>
+              <div>
+                <div class="rank-label">Trinity League — Punt Returns</div>
+                <div class="rank-sub">One of Southern California's premier leagues</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCHOOL -->
+<section id="school">
+  <div class="inner">
+    <div class="rev">
+      <div class="sec-tag">Program</div>
+      <h2 class="sec-title">ORANGE LUTHERAN <span>HS</span></h2>
+      <p class="sec-sub">One of Southern California's most elite football programs.</p>
+    </div>
+    <div class="school-inner rev" style="transition-delay:.1s">
+      <div class="school-info">
+        <div class="school-name-big">Orange Lutheran<br>Lancers</div>
+        <div class="school-loc">📍 Orange, California · Trinity League (SoCal's toughest)</div>
+        <div class="school-desc">
+          Orange Lutheran competes in the Trinity League — widely regarded as one of the most competitive high school football conferences in the nation, featuring perennial powers St. John Bosco, Mater Dei, and Servite. In 2024–25, Raiden was the <strong style="color:var(--gold)">only starting varsity freshman in the entire Trinity League</strong>. Earning a starting spot in this environment as a 14-year-old is an extraordinary achievement that speaks directly to his elite potential.
+        </div>
+        <div class="school-accolades">
+          <div class="accolade"><div class="acc-icon">🏟️</div><div class="acc-text">Trinity League<span>One of the nation's toughest HS conferences</span></div></div>
+          <div class="accolade"><div class="acc-icon">🏆</div><div class="acc-text">2025 CIF SS Division 1 Playoffs<span>Defeated nationally-ranked St. John Bosco 20–19</span></div></div>
+          <div class="accolade"><div class="acc-icon">⭐</div><div class="acc-text">Only Starting Varsity Freshman in the Trinity League<span>The sole freshman starter across the entire league in 2024–25 — Orange County, SoCal</span></div></div>
+          <div class="accolade"><div class="acc-icon">📈</div><div class="acc-text">3 Seasons of Growth Remaining<span>Class of 2029 — maximum upside prospect</span></div></div>
+        </div>
+      </div>
+      <div>
+        <div class="pt-label">2025 CIF Southern Section Playoffs · Div 1</div>
+        <div class="playoff-track">
+          <div class="pt-game win">
+            <div class="pt-vs">vs. St. John Bosco<span>First Round · Nov 14, 2025</span></div>
+            <div>
+              <div class="pt-round">WIN</div>
+              <div class="pt-score win-s">20–19</div>
+            </div>
+          </div>
+          <div class="pt-game loss">
+            <div class="pt-vs">vs. Santa Margarita<span>Quarterfinal · Nov 21, 2025</span></div>
+            <div>
+              <div class="pt-round">LOSS</div>
+              <div class="pt-score loss-s">6–31</div>
+            </div>
+          </div>
+        </div>
+        <div class="pt-label" style="margin-top:28px">Notable Regular Season Opponents</div>
+        <div class="playoff-track">
+          <div class="pt-game win">
+            <div class="pt-vs">Serra High School<span>Sep 12, 2025</span></div>
+            <div><div class="pt-score win-s">W 35–14</div></div>
+          </div>
+          <div class="pt-game win">
+            <div class="pt-vs">JSerra Catholic<span>Oct 17, 2025</span></div>
+            <div><div class="pt-score win-s">W 63–23</div></div>
+          </div>
+          <div class="pt-game loss">
+            <div class="pt-vs">Servite<span>Oct 31, 2025</span></div>
+            <div><div class="pt-score loss-s">L 28–30</div></div>
+          </div>
+        </div>
+        <div class="season-record">
+          <div class="rec-box"><div class="rec-num">3</div><div class="rec-key">Wins</div></div>
+          <div class="rec-box"><div class="rec-num">6</div><div class="rec-key">Losses</div></div>
+          <div class="rec-box"><div class="rec-num">CIF</div><div class="rec-key">Playoffs</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner">
+    <div class="rev">
+      <div class="sec-tag">Recruiting Contact</div>
+      <h2 class="sec-title">INTERESTED IN <span>RAIDEN?</span></h2>
+      <p class="sec-sub">For recruiting inquiries, game film requests, and campus visit scheduling — reach out directly. We respond within 24 hours.</p>
+    </div>
+    <div class="contact-cards rev" style="transition-delay:.1s">
+      <div class="cc">
+        <div class="cc-icon">📧</div>
+        <div class="cc-title">Email</div>
+        <div class="cc-val"><a href="mailto:velasquezryan@yahoo.com">velasquezryan@yahoo.com</a></div>
+      </div>
+      <div class="cc">
+        <div class="cc-icon">🎬</div>
+        <div class="cc-title">Film on Hudl</div>
+        <div class="cc-val"><a href="https://www.hudl.com/profile/26508217/raiden-velasquez" target="_blank">View Profile</a></div>
+      </div>
+      <div class="cc">
+        <div class="cc-icon">📊</div>
+        <div class="cc-title">MaxPreps</div>
+        <div class="cc-val"><a href="https://www.maxpreps.com/ca/orange/orange-lutheran-lancers/athletes/raiden-velasquez/?careerid=oktefdg1666g0" target="_blank">Full Stats & Photos</a></div>
+      </div>
+    </div>
+    <div class="cta-main rev" style="transition-delay:.2s">
+      <div class="cta-text">
+        <h3>Class of 2029 · 3 Seasons to Go</h3>
+        <p>The only starting varsity freshman in the Trinity League in 2024–25. Competing at the highest SoCal level from day one — the ceiling hasn't been touched yet.</p>
+      </div>
+      <a href="mailto:velasquezryan@yahoo.com?subject=Recruiting Inquiry - Raiden Velasquez WR 2029&body=Hello,%0D%0A%0D%0AI'm interested in learning more about Raiden Velasquez." class="cta-btn">
+        📬 Send Inquiry
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="fl">RAIDEN <span>VELASQUEZ</span> · WR · #24</div>
+  <div class="fc">© 2026 · Orange Lutheran HS · Orange, CA · Class of 2029</div>
+  <div class="fsource">
+    <a href="https://www.hudl.com/profile/26508217/raiden-velasquez" target="_blank">Hudl ↗</a>
+    <a href="https://www.maxpreps.com/ca/orange/orange-lutheran-lancers/athletes/raiden-velasquez/?careerid=oktefdg1666g0" target="_blank">MaxPreps ↗</a>
+    <a href="mailto:velasquezryan@yahoo.com">Contact ↗</a>
+  </div>
+</footer>
+
+<!-- TOAST -->
+<div class="toast" id="toast"><span id="ti">✅</span><span id="tm">Done</span></div>
+
+<script>
+// ── PARTICLES ──
+(()=>{
+  const c=document.getElementById('bgc'),ctx=c.getContext('2d');
+  let W,H,pts=[];
+  const G='245,184,0',C='0,212,255';
+  function resize(){W=c.width=window.innerWidth;H=c.height=window.innerHeight}
+  resize();window.addEventListener('resize',resize);
+  for(let i=0;i<60;i++) pts.push({x:Math.random()*9999,y:Math.random()*9999,vx:(Math.random()-.5)*.35,vy:(Math.random()-.5)*.35,r:Math.random()*1.4+.4,c:Math.random()>.75?C:G,a:Math.random()*.5+.15});
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    pts.forEach(p=>{
+      p.x+=p.vx;p.y+=p.vy;
+      if(p.x<0)p.x=W;if(p.x>W)p.x=0;
+      if(p.y<0)p.y=H;if(p.y>H)p.y=0;
+      ctx.beginPath();ctx.arc(p.x%W,p.y%H,p.r,0,Math.PI*2);
+      ctx.fillStyle=`rgba(${p.c},${p.a})`;ctx.fill();
+    });
+    for(let i=0;i<pts.length;i++) for(let j=i+1;j<pts.length;j++){
+      const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=Math.sqrt(dx*dx+dy*dy);
+      if(d<130){ctx.beginPath();ctx.moveTo(pts[i].x%W,pts[i].y%H);ctx.lineTo(pts[j].x%W,pts[j].y%H);ctx.strokeStyle=`rgba(${G},${.05*(1-d/130)})`;ctx.lineWidth=.5;ctx.stroke();}
+    }
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+// ── COUNT-UP ──
+function countUp(el,target,dur=1600){
+  const s=performance.now();
+  const tick=now=>{
+    const p=Math.min((now-s)/dur,1),e=1-Math.pow(1-p,3);
+    el.textContent=Math.round(target*e);
+    if(p<1)requestAnimationFrame(tick);
+  };
+  requestAnimationFrame(tick);
+}
+
+// ── SCROLL REVEAL ──
+const ro=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');ro.unobserve(e.target);}});
+},{threshold:.08});
+document.querySelectorAll('.rev').forEach(el=>ro.observe(el));
+
+// stat count-up on hero visible
+const so=new IntersectionObserver(entries=>{
+  if(entries[0].isIntersecting){
+    countUp(document.getElementById('sv1'),257);
+    countUp(document.getElementById('sv2'),17);
+    countUp(document.getElementById('sv3'),4);
+    so.disconnect();
+  }
+},{threshold:.3});
+so.observe(document.getElementById('statsbar'));
+
+// nav scroll
+window.addEventListener('scroll',()=>{
+  document.getElementById('nav').style.boxShadow=window.scrollY>40?'0 4px 24px rgba(0,0,0,.7)':'none';
+});
+
+// ── VIDEO HELPERS ──
+function parseUrl(url){
+  if(!url)return null;
+  const yt=url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
+  if(yt)return`https://www.youtube.com/embed/${yt[1]}?rel=0&modestbranding=1`;
+  if(url.includes('hudl.com'))return url.includes('/embed/')?url:url.replace('/video/','/embed/video/');
+  if(url.includes('/embed/'))return url;
+  return null;
+}
+
+function toast(icon,msg){
+  document.getElementById('ti').textContent=icon;
+  document.getElementById('tm').textContent=msg;
+  const t=document.getElementById('toast');
+  t.classList.add('show');
+  clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove('show'),3400);
+}
+
+function toggleAddPanel(id){
+  event.stopPropagation();
+  const p=document.getElementById(id);
+  p.classList.toggle('open');
+}
+
+// Main video embed
+function embedMain(){
+  const url=document.getElementById('mainUrlInput').value.trim();
+  const embed=parseUrl(url);
+  if(!embed){toast('⚠️','Paste a valid YouTube or Hudl link');return;}
+  document.getElementById('mainPlaceholder').style.display='none';
+  document.getElementById('mainPanel').classList.remove('open');
+  const wrap=document.getElementById('mainVideoWrap');
+  // Remove placeholder, add iframe
+  const existing=wrap.querySelector('iframe,video');
+  if(existing)existing.remove();
+  const ifr=document.createElement('iframe');
+  ifr.src=embed;ifr.allowFullscreen=true;ifr.style.cssText='width:100%;aspect-ratio:16/9;display:block;border:none;';
+  wrap.prepend(ifr);
+  document.getElementById('mainVideoMeta').style.display='block';
+  document.getElementById('mainVideoTitle').textContent='Raiden Velasquez — Highlight Film';
+  toast('🎬','Highlight film added!');
+}
+
+function uploadMain(input){
+  const file=input.files[0];if(!file)return;
+  const url=URL.createObjectURL(file);
+  document.getElementById('mainPlaceholder').style.display='none';
+  document.getElementById('mainPanel').classList.remove('open');
+  const wrap=document.getElementById('mainVideoWrap');
+  const existing=wrap.querySelector('iframe,video');if(existing)existing.remove();
+  const v=document.createElement('video');
+  v.src=url;v.controls=true;v.style.cssText='width:100%;aspect-ratio:16/9;display:block;background:#000;';
+  wrap.prepend(v);
+  document.getElementById('mainVideoMeta').style.display='block';
+  document.getElementById('mainVideoTitle').textContent=file.name.replace(/\.[^.]+$/,'');
+  toast('🎬',`"${file.name}" uploaded!`);
+}
+
+// Clip embed / upload
+function embedClip(n){
+  const url=document.getElementById(`url${n}`).value.trim();
+  const embed=parseUrl(url);
+  if(!embed){toast('⚠️','Paste a valid URL');return;}
+  const ct=document.getElementById(`ct${n}`);
+  ct.innerHTML='';
+  const ifr=document.createElement('iframe');
+  ifr.src=embed+'&autoplay=0';ifr.style.cssText='width:100%;height:100%;border:none;pointer-events:none;';
+  ct.appendChild(ifr);
+  document.getElementById(`ctitle${n}`).textContent='Highlight Clip '+n;
+  document.getElementById(`cmeta${n}`).textContent='Raiden Velasquez · 2025';
+  document.getElementById(`panel${n}`).classList.remove('open');
+  toast('✅',`Clip ${n} added!`);
+}
+
+function uploadClip(n,input){
+  const file=input.files[0];if(!file)return;
+  const url=URL.createObjectURL(file);
+  const ct=document.getElementById(`ct${n}`);
+  ct.innerHTML='';
+  const v=document.createElement('video');
+  v.src=url;v.style.cssText='width:100%;height:100%;object-fit:cover;pointer-events:none;';
+  ct.appendChild(v);
+  document.getElementById(`ctitle${n}`).textContent=file.name.replace(/\.[^.]+$/,'');
+  document.getElementById(`cmeta${n}`).textContent='Raiden Velasquez · 2025';
+  document
