@@ -259,8 +259,9 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:36px 48px
 .toast.show{transform:translateY(0);opacity:1}
 
 /* ── REVEAL ── */
-.rev{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}
-.rev.vis{opacity:1;transform:translateY(0)}
+.rev{opacity:1;transform:translateY(0);transition:opacity .7s,transform .7s}
+.js-ready .rev{opacity:0;transform:translateY(24px)}
+.js-ready .rev.vis{opacity:1;transform:translateY(0)}
 
 @media(max-width:900px){
   nav{padding:0 20px}.nlinks{display:none}
@@ -327,7 +328,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:36px 48px
     <div class="profile-card rev">
       <div class="profile-num">#24</div>
       <div class="profile-photo-wrap">
-        <img src="https://oluathletics.org/images/2025/8/8/RaidenVelasquez.jpg" alt="Raiden Velasquez" class="profile-photo" onerror="this.style.display='none';document.querySelector('.profile-avatar-fallback').style.display='flex'">
+        <img src="raiden_photo.jpg" alt="Raiden Velasquez" class="profile-photo" onerror="this.style.display='none';document.querySelector('.profile-avatar-fallback').style.display='flex'">
         <div class="profile-avatar-fallback">RV</div>
       </div>
       <div class="profile-pname">Raiden Velasquez</div>
@@ -740,6 +741,7 @@ function countUp(el,target,dur=1600){
 }
 
 // ── SCROLL REVEAL ──
+document.body.classList.add('js-ready');
 const ro=new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');ro.unobserve(e.target);}});
 },{threshold:.08});
@@ -845,4 +847,4 @@ function uploadClip(n,input){
   ct.appendChild(v);
   document.getElementById(`ctitle${n}`).textContent=file.name.replace(/\.[^.]+$/,'');
   document.getElementById(`cmeta${n}`).textContent='Raiden Velasquez · 2025';
-  document
+  document.getElementById(`panel${n}`).classList.remov
