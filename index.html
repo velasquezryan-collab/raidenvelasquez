@@ -392,9 +392,8 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:36px 48px
     <div class="film-layout rev" style="transition-delay:.1s">
       <div>
         <div class="video-main" id="mainVideoWrap">
-          <video controls muted loop playsinline preload="auto" style="width:100%;aspect-ratio:16/9;display:block;background:#000;border-radius:var(--rlg) var(--rlg) 0 0">
+          <video controls muted loop playsinline preload="metadata" style="width:100%;aspect-ratio:16/9;display:block;background:#000;border-radius:var(--rlg) var(--rlg) 0 0">
             <source src="highlight_reel.mp4" type="video/mp4">
-            Your browser does not support HTML5 video.
           </video>
           <div class="video-meta" style="display:block">
             <div class="video-meta-title">Raiden Velasquez — Highlights</div>
@@ -750,12 +749,15 @@ document.querySelectorAll('.rev').forEach(el=>ro.observe(el));
 // stat count-up on hero visible
 const so=new IntersectionObserver(entries=>{
   if(entries[0].isIntersecting){
-    countUp(document.getElementById('sv1'),257);
-    countUp(document.getElementById('sv2'),17);
-    countUp(document.getElementById('sv3'),4);
+    ['sv1','sv2','sv3'].forEach(id=>document.getElementById(id).textContent='0');
+    setTimeout(()=>{
+      countUp(document.getElementById('sv1'),257);
+      countUp(document.getElementById('sv2'),17);
+      countUp(document.getElementById('sv3'),4);
+    },100);
     so.disconnect();
   }
-},{threshold:.3});
+},{threshold:.1});
 so.observe(document.getElementById('statsbar'));
 
 // nav scroll
