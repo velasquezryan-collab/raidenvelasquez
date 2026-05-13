@@ -470,39 +470,39 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:36px 48px
         </div>
         <div class="gl-row">
           <div class="gl-opp">Northwestern (FL) <span><span class="result-l">L 15–17</span> · Aug 23</span></div>
-          <div class="gl-val">1</div><div class="gl-val">12</div><div class="gl-val">12.0</div><div class="gl-val">—</div>
+          <div class="gl-val">1</div><div class="gl-val">12</div><div class="gl-val">12.0</div><div class="gl-val">0</div>
         </div>
         <div class="gl-row">
           <div class="gl-opp">Rancho Cucamonga <span><span class="result-l">L 24–27</span> · Aug 29</span></div>
-          <div class="gl-val">2</div><div class="gl-val">36</div><div class="gl-val">18.0</div><div class="gl-val">—</div>
+          <div class="gl-val">2</div><div class="gl-val">36</div><div class="gl-val">18.0</div><div class="gl-val highlight">1</div>
         </div>
         <div class="gl-row">
           <div class="gl-opp">Basha (AZ) <span><span class="result-l">L 24–30</span> · Sep 5</span></div>
-          <div class="gl-val">3</div><div class="gl-val">19</div><div class="gl-val">6.3</div><div class="gl-val">—</div>
+          <div class="gl-val">3</div><div class="gl-val">19</div><div class="gl-val">6.3</div><div class="gl-val">0</div>
         </div>
         <div class="gl-row">
           <div class="gl-opp">Serra <span><span class="result-w">W 35–14</span> · Sep 12</span></div>
-          <div class="gl-val highlight">1</div><div class="gl-val highlight">66</div><div class="gl-val highlight">66.0</div><div class="gl-val">—</div>
+          <div class="gl-val highlight">1</div><div class="gl-val highlight">66</div><div class="gl-val highlight">66.0</div><div class="gl-val highlight">1</div>
         </div>
         <div class="gl-row">
           <div class="gl-opp">JSerra Catholic <span><span class="result-w">W 63–23</span> · Oct 17</span></div>
-          <div class="gl-val highlight">2</div><div class="gl-val highlight">65</div><div class="gl-val highlight">32.5</div><div class="gl-val">—</div>
+          <div class="gl-val highlight">2</div><div class="gl-val highlight">65</div><div class="gl-val highlight">32.5</div><div class="gl-val highlight">1</div>
         </div>
         <div class="gl-row">
           <div class="gl-opp">Santa Margarita <span><span class="result-l">L 7–28</span> · Oct 24</span></div>
-          <div class="gl-val">2</div><div class="gl-val">25</div><div class="gl-val">12.5</div><div class="gl-val">—</div>
+          <div class="gl-val">2</div><div class="gl-val">25</div><div class="gl-val">12.5</div><div class="gl-val">0</div>
         </div>
         <div class="gl-row">
           <div class="gl-opp">Servite <span><span class="result-l">L 28–30</span> · Oct 31</span></div>
-          <div class="gl-val">4</div><div class="gl-val">27</div><div class="gl-val">6.8</div><div class="gl-val">—</div>
+          <div class="gl-val">4</div><div class="gl-val">27</div><div class="gl-val">6.8</div><div class="gl-val highlight">1</div>
         </div>
         <div class="gl-row" style="background:rgba(0,212,255,.03)">
           <div class="gl-opp">St. John Bosco <span><span class="result-w">W 20–19 🏆</span> · Nov 14 · CIF Playoffs</span></div>
-          <div class="gl-val">—</div><div class="gl-val">—</div><div class="gl-val">—</div><div class="gl-val">—</div>
+          <div class="gl-val">—</div><div class="gl-val">—</div><div class="gl-val">—</div><div class="gl-val">0</div>
         </div>
         <div class="gl-row">
           <div class="gl-opp">Santa Margarita <span><span class="result-l">L 6–31</span> · Nov 21 · CIF Div 1 Final</span></div>
-          <div class="gl-val">2</div><div class="gl-val">7</div><div class="gl-val">3.5</div><div class="gl-val">—</div>
+          <div class="gl-val">2</div><div class="gl-val">7</div><div class="gl-val">3.5</div><div class="gl-val">0</div>
         </div>
         <div class="gl-row" style="background:rgba(245,184,0,.05);border-top:1px solid rgba(245,184,0,.2)">
           <div class="gl-opp" style="font-weight:800;color:var(--gold)">SEASON TOTALS</div>
@@ -739,26 +739,46 @@ function countUp(el,target,dur=1600){
   requestAnimationFrame(tick);
 }
 
-// ── SCROLL REVEAL ──
+// ── SCROLL REVEAL + COUNT-UP ──
 document.body.classList.add('js-ready');
+let statsCounted=false;
+const statsbarInner=document.querySelector('.statsbar-inner');
+
+function countUpDecimals(el,target,dur=1600){
+  const s=performance.now();
+  const tick=now=>{
+    const p=Math.min((now-s)/dur,1),e=1-Math.pow(1-p,3);
+    el.textContent=(target*e).toFixed(1);
+    if(p<1)requestAnimationFrame(tick);
+    else el.textContent=target.toFixed(1);
+  };
+  requestAnimationFrame(tick);
+}
+
+function runStatCountUp(){
+  if(statsCounted)return;
+  statsCounted=true;
+  ['sv1','sv2','sv3'].forEach(id=>document.getElementById(id).textContent='0');
+  setTimeout(()=>{
+    countUp(document.getElementById('sv1'),257);
+    countUp(document.getElementById('sv2'),17);
+    countUp(document.getElementById('sv3'),4);
+  },120);
+}
+
 const ro=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');ro.unobserve(e.target);}});
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('vis');
+      // Trigger count-up when the stats bar itself becomes visible
+      if(e.target===statsbarInner){
+        runStatCountUp();
+      }
+      ro.unobserve(e.target);
+    }
+  });
 },{threshold:.08});
 document.querySelectorAll('.rev').forEach(el=>ro.observe(el));
-
-// stat count-up on hero visible
-const so=new IntersectionObserver(entries=>{
-  if(entries[0].isIntersecting){
-    ['sv1','sv2','sv3'].forEach(id=>document.getElementById(id).textContent='0');
-    setTimeout(()=>{
-      countUp(document.getElementById('sv1'),257);
-      countUp(document.getElementById('sv2'),17);
-      countUp(document.getElementById('sv3'),4);
-    },100);
-    so.disconnect();
-  }
-},{threshold:.1});
-so.observe(document.getElementById('statsbar'));
 
 // nav scroll
 window.addEventListener('scroll',()=>{
@@ -849,4 +869,9 @@ function uploadClip(n,input){
   ct.appendChild(v);
   document.getElementById(`ctitle${n}`).textContent=file.name.replace(/\.[^.]+$/,'');
   document.getElementById(`cmeta${n}`).textContent='Raiden Velasquez · 2025';
-  document.getElementById(`panel${n}`).classList.remov
+  document.getElementById(`panel${n}`).classList.remove('open');
+  toast('✅',`Clip ${n} uploaded!`);
+}
+</script>
+</body>
+</html>
