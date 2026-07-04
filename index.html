@@ -420,11 +420,13 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:36px 48px
           <div class="upload-area"><input type="file" accept="video/*" onchange="uploadClip(1,this)"><p><strong>Upload MP4</strong></p></div>
         </div>
         <!-- Clip 2 -->
-        <div class="clip-card" id="clip2" onclick="toggleAddPanel('panel2')">
-          <div class="clip-thumb" id="ct2"><span>+</span></div>
+        <div class="clip-card" id="clip2" style="cursor:default">
+          <div class="clip-thumb" id="ct2" style="background:#000;overflow:hidden;border-radius:8px">
+            <video src="gucci_highlight.mp4" muted playsinline style="width:100%;height:100%;object-fit:cover" onmouseover="this.play()" onmouseout="this.pause();this.currentTime=0"></video>
+          </div>
           <div class="clip-info">
-            <div class="clip-title" id="ctitle2">Add Clip 2</div>
-            <div class="clip-meta" id="cmeta2">Game film · Drill footage · Camp</div>
+            <div class="clip-title" id="ctitle2">Game Highlight</div>
+            <div class="clip-meta" id="cmeta2">2024–25 Season · Orange Lutheran HS</div>
           </div>
         </div>
         <div class="add-panel" id="panel2">
@@ -867,11 +869,4 @@ function uploadClip(n,input){
   const v=document.createElement('video');
   v.src=url;v.style.cssText='width:100%;height:100%;object-fit:cover;pointer-events:none;';
   ct.appendChild(v);
-  document.getElementById(`ctitle${n}`).textContent=file.name.replace(/\.[^.]+$/,'');
-  document.getElementById(`cmeta${n}`).textContent='Raiden Velasquez · 2025';
-  document.getElementById(`panel${n}`).classList.remove('open');
-  toast('✅',`Clip ${n} uploaded!`);
-}
-</script>
-</body>
-</html>
+  document.getElementById(`ctitle${n}`).textContent=fi
