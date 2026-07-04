@@ -420,9 +420,9 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:36px 48px
           <div class="upload-area"><input type="file" accept="video/*" onchange="uploadClip(1,this)"><p><strong>Upload MP4</strong></p></div>
         </div>
         <!-- Clip 2 -->
-        <div class="clip-card" id="clip2" style="cursor:default">
+        <div class="clip-card" id="clip2" style="cursor:pointer" title="Click to play" onclick="playInMain('gucci_highlight.mp4','Game Highlight')">
           <div class="clip-thumb" id="ct2" style="background:#000;overflow:hidden;border-radius:8px">
-            <video src="gucci_highlight.mp4" muted playsinline style="width:100%;height:100%;object-fit:cover" onmouseover="this.play()" onmouseout="this.pause();this.currentTime=0"></video>
+            <video src="gucci_highlight.mp4" muted playsinline style="width:100%;height:100%;object-fit:cover;pointer-events:none" onmouseover="this.play()" onmouseout="this.pause();this.currentTime=0"></video>
           </div>
           <div class="clip-info">
             <div class="clip-title" id="ctitle2">Game Highlight</div>
@@ -867,6 +867,4 @@ function uploadClip(n,input){
   const ct=document.getElementById(`ct${n}`);
   ct.innerHTML='';
   const v=document.createElement('video');
-  v.src=url;v.style.cssText='width:100%;height:100%;object-fit:cover;pointer-events:none;';
-  ct.appendChild(v);
-  document.getElementById(`ctitle${n}`).textContent=fi
+  v.src=url;v.style.cssText='width:100%;height:100%;object-fit:c
