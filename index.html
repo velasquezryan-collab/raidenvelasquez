@@ -368,11 +368,12 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:36px 48px
         <div class="trinity-icon">★</div>
         <div class="trinity-text">
           <div class="trinity-headline">Only Starting Varsity Freshman in the Trinity League</div>
-          <div class="trinity-sub">Orange County · Southern California · 2025–26 Season</div>
+          <div class="trinity-sub">Orange County · Southern California · 2025–26 · No. 1 in Trinity League yards per catch, 2026</div>
         </div>
       </div>
       <div class="hero-tags">
-        <span class="htag htag-gold">⚡ Only Varsity Freshman Starter</span>
+        <span class="htag htag-gold">⚡ No. 1 Trinity League YPC · 2026</span>
+        <span class="htag htag-gold">📰 LA Times Top Performer · Oct 3, 2026</span>
         <span class="htag htag-cyan">CIF SS Div 1 Playoffs</span>
         <span class="htag htag-gray">Orange, CA</span>
         <span class="htag htag-gray">5'10" · 185 lbs</span>
@@ -406,31 +407,31 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:36px 48px
 <div id="statsbar">
   <div class="statsbar-label">
     <span class="statsbar-season">⭐ Sophomore Season Stats — 2026–27</span>
-    <span class="statsbar-note">Orange Lutheran Varsity · Trinity League · Through 2 Games</span>
+    <span class="statsbar-note">Orange Lutheran Varsity · Trinity League · Through 6 Games</span>
   </div>
   <div class="statsbar-inner rev">
     <div class="stat-item">
-      <div class="stat-val" id="sv1">132</div>
+      <div class="stat-val" id="sv1">383</div>
       <div class="stat-key">Receiving Yards</div>
-      <div class="stat-vs">Natl Avg: 32</div>
+      <div class="stat-vs">Natl Avg: 96</div>
     </div>
     <div class="stat-item">
-      <div class="stat-val" id="sv2">7</div>
+      <div class="stat-val" id="sv2">19</div>
       <div class="stat-key">Receptions</div>
+      <div class="stat-vs">Natl Avg: 6</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-val" id="sv3">5</div>
+      <div class="stat-key">Receiving TDs</div>
       <div class="stat-vs">Natl Avg: 2</div>
     </div>
     <div class="stat-item">
-      <div class="stat-val" id="sv3">1</div>
-      <div class="stat-key">Receiving TDs</div>
-      <div class="stat-vs">Natl Avg: 1</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-val">18.9</div>
+      <div class="stat-val">20.2</div>
       <div class="stat-key">Yards Per Catch</div>
       <div class="stat-vs">Natl Avg: 14.0</div>
     </div>
     <div class="stat-item">
-      <div class="stat-val">66.0</div>
+      <div class="stat-val">63.8</div>
       <div class="stat-key">Yards Per Game</div>
       <div class="stat-vs">Natl Avg: 22.3</div>
     </div>
@@ -474,7 +475,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:36px 48px
     <div class="rev">
       <div class="sec-tag">Film Room</div>
       <h2 class="sec-title">HIGHLIGHT <span>FILM</span></h2>
-      <p class="sec-sub">2025–26 season footage · Orange Lutheran Lancers Varsity · Trinity League</p>
+      <p class="sec-sub">2026 and 2025–26 footage · Orange Lutheran Lancers Varsity · Trinity League · Full 2026 reel on <a href="https://www.hudl.com/v/2SftZD" target="_blank" style="color:var(--gold)">Hudl ↗</a></p>
     </div>
 
     <div class="film-layout rev" style="transition-delay:.1s">
@@ -504,45 +505,32 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:36px 48px
       <div class="clips-panel">
         <div class="sec-tag" style="margin-bottom:12px">Additional Clips</div>
         <!-- Clip 1 -->
-        <div class="clip-card" id="clip1" style="cursor:default">
-          <div class="clip-thumb" id="ct1" style="background:#000;overflow:hidden;border-radius:8px">
-            <video src="highlight_reel.mp4" muted playsinline style="width:100%;height:100%;object-fit:cover" onmouseover="this.play()" onmouseout="this.pause();this.currentTime=0"></video>
+        <div class="clip-card" id="clip1" onclick="playInMain('servite_reel_2026.mov','Servite Week · Strap Mob Media','Oct 2, 2026 · W 56–21 · 4 rec, 143 yds, 3 TD')">
+          <div class="clip-thumb" id="ct1" style="background:#000;overflow:hidden;border-radius:8px;opacity:1">
+            <video src="servite_reel_2026.mov" muted playsinline preload="metadata" style="width:100%;height:100%;object-fit:cover" onmouseover="this.play()" onmouseout="this.pause();this.currentTime=0"></video>
           </div>
           <div class="clip-info">
-            <div class="clip-title" id="ctitle1">Highlight Reel</div>
-            <div class="clip-meta" id="cmeta1">2025–26 Season · Orange Lutheran</div>
+            <div class="clip-title" id="ctitle1">Servite Week Reel · 2026</div>
+            <div class="clip-meta" id="cmeta1">Oct 2, 2026 · 4 rec, 143 yds, 3 TD · Strap Mob Media</div>
           </div>
-        </div>
-        <div class="add-panel" id="panel1">
-          <h4>📎 Add Clip 1</h4>
-          <div class="video-input-row"><input type="text" id="url1" placeholder="YouTube or Hudl URL…"><button onclick="embedClip(1)">ADD</button></div>
-          <div class="upload-area"><input type="file" accept="video/*" onchange="uploadClip(1,this)"><p><strong>Upload MP4</strong></p></div>
         </div>
         <!-- Clip 2 -->
-        <div class="clip-card" id="clip2" onclick="toggleAddPanel('panel2')">
-          <div class="clip-thumb" id="ct2"><span>+</span></div>
+        <a class="clip-card" id="clip2" href="https://www.hudl.com/v/2SftZD" target="_blank" style="text-decoration:none;color:inherit">
+          <div class="clip-thumb" id="ct2" style="opacity:1;font-size:28px">🎬</div>
           <div class="clip-info">
-            <div class="clip-title" id="ctitle2">Add Clip 2</div>
-            <div class="clip-meta" id="cmeta2">Game film · Drill footage · Camp</div>
+            <div class="clip-title" id="ctitle2">2026 Sophomore Highlights</div>
+            <div class="clip-meta" id="cmeta2">Full reel on Hudl ↗ · hudl.com/v/2SftZD</div>
           </div>
-        </div>
-        <div class="add-panel" id="panel2">
-          <h4>📎 Add Clip 2</h4>
-          <div class="video-input-row"><input type="text" id="url2" placeholder="YouTube or Hudl URL…"><button onclick="embedClip(2)">ADD</button></div>
-          <div class="upload-area"><input type="file" accept="video/*" onchange="uploadClip(2,this)"><p><strong>Upload MP4</strong></p></div>
-        </div>
+        </a>
         <!-- Clip 3 -->
-        <div class="clip-card" id="clip3" onclick="toggleAddPanel('panel3')">
-          <div class="clip-thumb" id="ct3"><span>+</span></div>
-          <div class="clip-info">
-            <div class="clip-title" id="ctitle3">Add Clip 3</div>
-            <div class="clip-meta" id="cmeta3">Game film · Drill footage · Camp</div>
+        <div class="clip-card" id="clip3" onclick="playInMain('highlight_reel.mp4','Raiden Velasquez — Freshman Highlights','2025–26 Season · Orange Lutheran HS · WR #11')">
+          <div class="clip-thumb" id="ct3" style="background:#000;overflow:hidden;border-radius:8px;opacity:1">
+            <video src="highlight_reel.mp4" muted playsinline preload="metadata" style="width:100%;height:100%;object-fit:cover" onmouseover="this.play()" onmouseout="this.pause();this.currentTime=0"></video>
           </div>
-        </div>
-        <div class="add-panel" id="panel3">
-          <h4>📎 Add Clip 3</h4>
-          <div class="video-input-row"><input type="text" id="url3" placeholder="YouTube or Hudl URL…"><button onclick="embedClip(3)">ADD</button></div>
-          <div class="upload-area"><input type="file" accept="video/*" onchange="uploadClip(3,this)"><p><strong>Upload MP4</strong></p></div>
+          <div class="clip-info">
+            <div class="clip-title" id="ctitle3">Freshman Highlight Reel</div>
+            <div class="clip-meta" id="cmeta3">2025–26 Season · Orange Lutheran</div>
+          </div>
         </div>
       </div>
     </div>
@@ -555,7 +543,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:36px 48px
     <div class="rev">
       <div class="sec-tag">2026–27 Season</div>
       <h2 class="sec-title">SEASON <span>BREAKDOWN</span></h2>
-      <p class="sec-sub">Sophomore year on Varsity — off to a fast start against national-caliber competition.</p>
+      <p class="sec-sub">Sophomore year on Varsity. Leads the Trinity League in yards per catch through six games. LA Times Top Performer after the Servite win: <em>"Caught four passes for 153 yards and three touchdowns."</em></p>
     </div>
     <div class="season-grid rev" style="transition-delay:.1s">
       <!-- Game log -->
@@ -573,14 +561,30 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:36px 48px
         </div>
         <div class="gl-row">
           <div class="gl-opp">Cathedral Catholic <span><span class="result-w">W 38–24</span> · Aug 28</span></div>
-          <div class="gl-val highlight">5</div><div class="gl-val highlight">94</div><div class="gl-val highlight">18.8</div><div class="gl-val highlight">1</div>
+          <div class="gl-val">5</div><div class="gl-val">94</div><div class="gl-val">18.8</div><div class="gl-val">1</div>
+        </div>
+        <div class="gl-row">
+          <div class="gl-opp">Basha (AZ) <span><span class="result-w">W 23–17</span> · Sep 4</span></div>
+          <div class="gl-val">4</div><div class="gl-val">49</div><div class="gl-val">12.3</div><div class="gl-val">0</div>
+        </div>
+        <div class="gl-row">
+          <div class="gl-opp">Serra <span><span class="result-w">W 35–0</span> · Sep 11</span></div>
+          <div class="gl-val">4</div><div class="gl-val">59</div><div class="gl-val">14.8</div><div class="gl-val">1</div>
+        </div>
+        <div class="gl-row">
+          <div class="gl-opp">Sierra Canyon <span><span class="result-l">L 9–41</span> · Sep 18</span></div>
+          <div class="gl-val">0</div><div class="gl-val">0</div><div class="gl-val">–</div><div class="gl-val">0</div>
+        </div>
+        <div class="gl-row">
+          <div class="gl-opp">Servite <span><span class="result-w">W 56–21</span> · Oct 2</span></div>
+          <div class="gl-val highlight">4</div><div class="gl-val highlight">143</div><div class="gl-val highlight">35.8</div><div class="gl-val highlight">3</div>
         </div>
         <div class="gl-row" style="background:rgba(232,50,60,.05);border-top:1px solid rgba(232,50,60,.2)">
-          <div class="gl-opp" style="font-weight:800;color:var(--gold)">SEASON TOTALS · 2 GAMES</div>
-          <div class="gl-val highlight" style="font-size:16px">7</div>
-          <div class="gl-val highlight" style="font-size:16px">132</div>
-          <div class="gl-val highlight" style="font-size:16px">18.9</div>
-          <div class="gl-val highlight" style="font-size:16px">1</div>
+          <div class="gl-opp" style="font-weight:800;color:var(--gold)">SEASON TOTALS · 6 GAMES</div>
+          <div class="gl-val highlight" style="font-size:16px">19</div>
+          <div class="gl-val highlight" style="font-size:16px">383</div>
+          <div class="gl-val highlight" style="font-size:16px">20.2</div>
+          <div class="gl-val highlight" style="font-size:16px">5</div>
         </div>
         <div class="gl-row" style="opacity:.6">
           <div class="gl-opp" style="color:var(--muted)">2025–26 Freshman Season <span>10 games · Varsity</span></div>
@@ -598,12 +602,12 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:36px 48px
               <div class="cbar-row">
                 <div class="cbar-who raiden">Raiden</div>
                 <div class="cbar-bg"><div class="cbar-fill raiden" style="width:100%"></div></div>
-                <div class="cbar-num raiden">132</div>
+                <div class="cbar-num raiden">383</div>
               </div>
               <div class="cbar-row">
                 <div class="cbar-who avg">Avg</div>
-                <div class="cbar-bg"><div class="cbar-fill avg" style="width:24%"></div></div>
-                <div class="cbar-num avg">32</div>
+                <div class="cbar-bg"><div class="cbar-fill avg" style="width:25%"></div></div>
+                <div class="cbar-num avg">96</div>
               </div>
             </div>
           </div>
@@ -613,12 +617,12 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:36px 48px
               <div class="cbar-row">
                 <div class="cbar-who raiden">Raiden</div>
                 <div class="cbar-bg"><div class="cbar-fill raiden" style="width:100%"></div></div>
-                <div class="cbar-num raiden">7</div>
+                <div class="cbar-num raiden">19</div>
               </div>
               <div class="cbar-row">
                 <div class="cbar-who avg">Avg</div>
-                <div class="cbar-bg"><div class="cbar-fill avg" style="width:29%"></div></div>
-                <div class="cbar-num avg">2</div>
+                <div class="cbar-bg"><div class="cbar-fill avg" style="width:32%"></div></div>
+                <div class="cbar-num avg">6</div>
               </div>
             </div>
           </div>
@@ -628,31 +632,33 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:36px 48px
               <div class="cbar-row">
                 <div class="cbar-who raiden">Raiden</div>
                 <div class="cbar-bg"><div class="cbar-fill raiden" style="width:100%"></div></div>
-                <div class="cbar-num raiden">66.0</div>
+                <div class="cbar-num raiden">63.8</div>
               </div>
               <div class="cbar-row">
                 <div class="cbar-who avg">Avg</div>
-                <div class="cbar-bg"><div class="cbar-fill avg" style="width:34%"></div></div>
+                <div class="cbar-bg"><div class="cbar-fill avg" style="width:35%"></div></div>
                 <div class="cbar-num avg">22.3</div>
               </div>
             </div>
           </div>
           <div class="rankings-box">
-            <div class="sec-tag" style="margin-bottom:16px">SoCal Rankings — 2026–27</div>
+            <div class="sec-tag" style="margin-bottom:16px">Trinity League Rankings — 2026</div>
             <div class="rank-item">
-              <div class="rank-num">#8</div>
+              <div class="rank-num">#1</div>
               <div>
-                <div class="rank-label">Division 1 — Receiving Yards</div>
-                <div class="rank-sub">CIF Southern Section</div>
+                <div class="rank-label">Trinity League — Yards Per Catch (20.2)</div>
+                <div class="rank-sub">MaxPreps, min. 15 receptions. Next best: 14.2</div>
               </div>
             </div>
             <div class="rank-item">
-              <div class="rank-num">#4</div>
+              <div class="rank-num">#5</div>
               <div>
-                <div class="rank-label">Trinity League — Receiving Yards</div>
-                <div class="rank-sub">One of Southern California's premier leagues</div>
+                <div class="rank-label">Trinity League — Receiving Yards (383)</div>
+                <div class="rank-sub">On the fewest catches of anyone in the top five</div>
               </div>
             </div>
+            <a href="trinity_league_ypc_2026.png" target="_blank" style="display:block;margin-top:14px"><img src="trinity_league_ypc_2026.png" alt="Trinity League wide receivers, yards per catch, 2026" style="width:100%;border-radius:var(--r);border:1px solid var(--border);display:block"></a>
+            <div class="rank-sub" style="margin-top:8px">Stats: MaxPreps through Oct 2, 2026. Offers and profiles: 247Sports, Rivals, On3, Oct 5, 2026.</div>
           </div>
         </div>
       </div>
@@ -673,9 +679,11 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:36px 48px
         <div class="school-name-big">Orange Lutheran<br>Lancers</div>
         <div class="school-loc">📍 Orange, California · Trinity League (SoCal's toughest)</div>
         <div class="school-desc">
-          Orange Lutheran competes in the Trinity League — widely regarded as one of the most competitive high school football conferences in the nation, featuring perennial powers St. John Bosco, Mater Dei, and Servite. In 2025–26, Raiden was the <strong style="color:var(--gold)">only starting varsity freshman in the entire Trinity League</strong>. Earning a starting spot in this environment as a 14-year-old is an extraordinary achievement that speaks directly to his elite potential.
+          Orange Lutheran competes in the Trinity League — widely regarded as one of the most competitive high school football conferences in the nation, featuring perennial powers St. John Bosco, Mater Dei, and Servite. In 2025–26, Raiden was the <strong style="color:var(--gold)">only starting varsity freshman in the entire Trinity League</strong>. In 2026 he leads the league in yards per catch. Earning a starting spot in this environment as a 14-year-old is an extraordinary achievement that speaks directly to his elite potential.
         </div>
         <div class="school-accolades">
+          <div class="accolade"><div class="acc-icon">📰</div><div class="acc-text">LA Times Top Performer · Oct 3, 2026<span>Eric Sondheimer: "Caught four passes for 153 yards and three touchdowns in win over Servite."</span></div></div>
+          <div class="accolade"><div class="acc-icon">📰</div><div class="acc-text">MaxPreps National Coverage · Sep 5, 2026<span>Featured in Zack Poff's story on the win over No. 12 Basha</span></div></div>
           <div class="accolade"><div class="acc-icon">🏟️</div><div class="acc-text">Trinity League<span>One of the nation's toughest HS conferences</span></div></div>
           <div class="accolade"><div class="acc-icon">🏆</div><div class="acc-text">2025 CIF SS Division 1 Playoffs<span>Defeated nationally-ranked St. John Bosco 20–19</span></div></div>
           <div class="accolade"><div class="acc-icon">⭐</div><div class="acc-text">Only Starting Varsity Freshman in the Trinity League<span>The sole freshman starter across the entire league in 2025–26 — Orange County, SoCal</span></div></div>
@@ -716,9 +724,9 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:36px 48px
           </div>
         </div>
         <div class="season-record">
-          <div class="rec-box"><div class="rec-num">3</div><div class="rec-key">Wins</div></div>
-          <div class="rec-box"><div class="rec-num">6</div><div class="rec-key">Losses</div></div>
-          <div class="rec-box"><div class="rec-num">CIF</div><div class="rec-key">Playoffs</div></div>
+          <div class="rec-box"><div class="rec-num">4–2</div><div class="rec-key">2026 Record</div></div>
+          <div class="rec-box"><div class="rec-num">3–6</div><div class="rec-key">2025 Record</div></div>
+          <div class="rec-box"><div class="rec-num">CIF</div><div class="rec-key">2025 Playoffs</div></div>
         </div>
       </div>
     </div>
@@ -745,6 +753,11 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:36px 48px
         <div class="cc-val"><a href="https://www.hudl.com/profile/26508217/raiden-velasquez" target="_blank">View Profile</a></div>
       </div>
       <div class="cc">
+        <div class="cc-icon">🏈</div>
+        <div class="cc-title">OLu Recruiting Coordinator</div>
+        <div class="cc-val"><a href="https://x.com/ChrisWardOL" target="_blank">Coach Chris Ward</a></div>
+      </div>
+      <div class="cc">
         <div class="cc-icon">📊</div>
         <div class="cc-title">MaxPreps</div>
         <div class="cc-val"><a href="https://www.maxpreps.com/ca/orange/orange-lutheran-lancers/athletes/raiden-velasquez/?careerid=oktefdg1666g0" target="_blank">Full Stats & Photos</a></div>
@@ -753,7 +766,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:36px 48px
     <div class="cta-main rev" style="transition-delay:.2s">
       <div class="cta-text">
         <h3>Class of 2029 · Sophomore Season Underway</h3>
-        <p>The only starting varsity freshman in the Trinity League in 2025–26 — now a sophomore averaging 18.9 yards per catch through two games. The ceiling hasn't been touched yet.</p>
+        <p>The only starting varsity freshman in the Trinity League in 2025–26 — now a sophomore leading the Trinity League at 20.2 yards per catch through six games, with 383 yards and 5 TD. LA Times Top Performer, Oct 3, 2026. The ceiling hasn't been touched yet.</p>
       </div>
       <a href="mailto:velasquezryan@yahoo.com?subject=Recruiting Inquiry - Raiden Velasquez WR 2029&body=Hello,%0D%0A%0D%0AI'm interested in learning more about Raiden Velasquez." class="cta-btn">
         📬 Send Inquiry
@@ -949,7 +962,7 @@ function uploadClip(n,input){
 }
 
 // Play a local clip in the main viewer (with sound + controls)
-function playInMain(src,title){
+function playInMain(src,title,sub2){
   const wrap=document.getElementById('mainVideoWrap');
   const existing=wrap.querySelector('iframe,video');
   if(existing)existing.remove();
@@ -960,7 +973,7 @@ function playInMain(src,title){
   const meta=wrap.querySelector('.video-meta-title');
   if(meta&&title)meta.textContent=title;
   const sub=wrap.querySelector('.video-meta-sub');
-  if(sub)sub.textContent='2025–26 Season · Orange Lutheran HS · WR #11';
+  if(sub)sub.textContent=sub2||'2026–27 Season · Orange Lutheran HS · WR #11';
   v.play().catch(()=>{});
   wrap.scrollIntoView({behavior:'smooth',block:'center'});
 }
